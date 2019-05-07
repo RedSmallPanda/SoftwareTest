@@ -9,7 +9,7 @@ public class Date {
 		d = new Day(pDay, m);
 	}
 
-	public void increment() {
+	public String increment() {
 		if (!d.increment()) {
 			if (!m.increment()) {
 				y.increment();
@@ -17,10 +17,11 @@ public class Date {
 			}
 			d.setDay(1, m);
 		}
+		return printDate();
 	}
 
-	public void printDate() {
-		System.out.println(m.getMonth() + "/" + d.getDay() + "/" + y.getYear());
+	public String printDate() {
+		return (m.getMonth() + "/" + d.getDay() + "/" + y.getYear());
 	}
 
 	public Day getDay() {
