@@ -48,6 +48,7 @@ public class YearTest {
 
     @Test
     public void isLeap() {
+        assertFalse(year.isLeap());
         year.setYear(2016);
         assertTrue(year.isLeap());
         year.setYear(1900);
@@ -60,6 +61,8 @@ public class YearTest {
         assertFalse(year.isLeap());
         year.setYear(-401);
         assertTrue(year.isLeap());
+        year.setYear(-2);
+        assertFalse(year.isLeap());
     }
 
     @Test
@@ -72,6 +75,7 @@ public class YearTest {
     @Test
     public void equals1() {
         assertEquals(year, new Year(2019));
+        assertNotEquals(year, new Year(2020));
         assertNotEquals(year, new Object());
     }
 }
