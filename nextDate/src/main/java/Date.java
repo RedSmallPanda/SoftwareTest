@@ -3,10 +3,10 @@ public class Date {
 	private Month m;
 	private Year y;
 
-	public Date(int pMonth, int pDay, int pYear) {
-		y = new Year(pYear);
-		m = new Month(pMonth, y);
-		d = new Day(pDay, m);
+	public Date(Month pMonth, Day pDay, Year pYear) {
+		y = pYear;
+		m = pMonth;
+		d = pDay;
 	}
 
 	public String increment() {

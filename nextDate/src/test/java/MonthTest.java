@@ -3,6 +3,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
+import static org.mockito.Mockito.*;
 
 public class MonthTest {
 
@@ -11,8 +12,7 @@ public class MonthTest {
 
     @Before
     public void setUp() throws Exception {
-        year = new Year(2019);
-        month = new Month(5, year);
+        year = mock(Year.class);
     }
 
     @After
@@ -21,11 +21,15 @@ public class MonthTest {
 
     @Test
     public void setMonth() {
+        // case 1
+        when(year.isValid()).thenReturn(true);
+        month = new Month(4, year);
+        month.setMonth(5, year);
         assertEquals(month.getMonth(), 5);
+        // case 2
         try {
             month.setMonth(13, year);
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             assertTrue(e instanceof IllegalArgumentException);
             assertEquals(e.toString(),
                     "java.lang.IllegalArgumentException: Not a valid month");
@@ -34,13 +38,20 @@ public class MonthTest {
 
     @Test
     public void getMonth() {
+        // case 1
+        when(year.isValid()).thenReturn(true);
+        month = new Month(5, year);
         assertEquals(month.getMonth(), 5);
     }
 
     @Test
     public void getMonthSize() {
+        // case 1
+        when(year.isValid()).thenReturn(true);
+        month = new Month(5, year);
         assertEquals(month.getMonthSize(), 31);
-        year.setYear(2020);
+        // case 2
+        when(year.isLeap()).thenReturn(true);
         month.setMonth(2, year);
         assertEquals(month.getMonthSize(), 29);
 
@@ -48,25 +59,65 @@ public class MonthTest {
 
     @Test
     public void increment() {
-        month = new Month(12, new Year(2019));
-        assertEquals(month.increment(), false);
-        month = new Month(1, new Year(2019));
-        assertEquals(month.increment(), true);
+        // case 1
+        when(year.isValid()).thenReturn(true);
+        month = new Month(12, year);
+        assertFalse(month.increment());
+        // case 2
+        month = new Month(1, year);
+        assertTrue(month.increment());
     }
 
     @Test
     public void isValid() {
-        assertEquals(month.isValid(), true);
+        // case 1
+        when(year.isValid()).thenReturn(true);
+        month = new Month(5, year);
+        assertTrue(month.isValid());
+        // case 2
+        try {
+            month = new Month(5, year);
+            month.setMonth(5, null);
+        } catch (Exception e) {
+            assertFalse(month.isValid());
+        }
+        // case 3
+        try {
+            month = new Month(5, year);
+            month.setMonth(0, year);
+        } catch (Exception e) {
+            assertFalse(month.isValid());
+        }
+        // case 4
+        try {
+            month = new Month(5, year);
+            month.setMonth(13, year);
+        } catch (Exception e) {
+            assertFalse(month.isValid());
+        }
+        // case 5
+        try {
+            when(year.isValid()).thenReturn(false);
+            month = new Month(5, year);
+        } catch (Exception e) {
+            assertFalse(month.isValid());
+        }
     }
 
     @Test
     public void equals() {
-        assertTrue(month.equals(new Month(5, year)));
-        assertTrue(!month.equals(new Month(7, year)));
+        when(year.isValid()).thenReturn(true);
+        month = new Month(5, year);
+        assertEquals(month, new Month(5, year));
+        assertNotEquals(month, new Month(7, year));
+        assertNotEquals(month, new Month(5, new Year(2020)));
+        assertNotEquals(month, new Object());
     }
 
     @Test
     public void setCurrentPos() {
+        when(year.isValid()).thenReturn(true);
+        month = new Month(5, year);
         assertEquals(month.getMonth(), 5);
         month.setCurrentPos(13);
         assertEquals(month.getMonth(), 13);
@@ -74,17 +125,11 @@ public class MonthTest {
 
     @Test
     public void getCurrentPos() {
+        when(year.isValid()).thenReturn(true);
+        month = new Month(5, year);
         assertEquals(month.getCurrentPos(), 5);
         month.setCurrentPos(13);
         assertEquals(month.getCurrentPos(), 13);
     }
 
-    @Test
-    public void increment1() {
-
-    }
-
-    @Test
-    public void isValid1() {
-    }
 }

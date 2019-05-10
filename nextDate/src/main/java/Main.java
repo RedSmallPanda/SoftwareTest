@@ -1,11 +1,13 @@
 public class Main {
 
-
-	public static String NextDate(int month, int day, int year) {
-	    Date d = new Date(month,day,year);
-	    Date dd = new Date(d.getMonth().getCurrentPos(), d.getDay().getCurrentPos(), d.getYear().getCurrentPos());
-        dd.increment();
-        return dd.toString();
+	public static String Nextdate(int month,int day,int year) {
+        Year y=new Year(year);
+        Month m=new Month(month,y);
+        Day d=new Day(day,m);
+	    Date date = new Date(m,d,y);
+	    //Date dd = new Date(date.getMonth().getCurrentPos(), date.getDay().getCurrentPos(), date.getYear().getCurrentPos());
+        date.increment();
+        return date.toString();
     }
 
 }
