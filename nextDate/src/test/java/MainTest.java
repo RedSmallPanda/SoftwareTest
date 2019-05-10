@@ -9,7 +9,7 @@ public class MainTest {
     @Test
     public void nextdate() {
         try {
-            Main.NextDate(1, 1, 0);
+            Main.nextDate(1, 1, 0);
             fail();
         }
         catch (Exception e) {
@@ -22,7 +22,7 @@ public class MainTest {
 
 
         try {
-            Main.NextDate(0, 1, 1);
+            Main.nextDate(0, 1, 1);
             fail();
         }
         catch (Exception e) {
@@ -34,7 +34,7 @@ public class MainTest {
         }
 
         try {
-            Main.NextDate(13, 1, 1);
+            Main.nextDate(13, 1, 1);
             fail();
         }
         catch (Exception e) {
@@ -46,7 +46,7 @@ public class MainTest {
         }
 
         try {
-            Main.NextDate(1, 0, 1);
+            Main.nextDate(1, 0, 1);
             fail();
         }
         catch (Exception e) {
@@ -57,7 +57,7 @@ public class MainTest {
             );
         }
         try {
-            Main.NextDate(1, 32, 1);
+            Main.nextDate(1, 32, 1);
             fail();
         }
         catch (Exception e) {
@@ -68,30 +68,26 @@ public class MainTest {
             );
         }
 
-       assertEquals(Main.NextDate(2,28,1600),"2/29/1600");
+       assertEquals(Main.nextDate(2,28,1600),"2/29/1600");
 
-        assertEquals(Main.NextDate(2,28,2100),"3/1/2100");
+        assertEquals(Main.nextDate(2,28,2100),"3/1/2100");
 
-        assertEquals(Main.NextDate(2,14,114514),"2/15/114514");
+        assertEquals(Main.nextDate(2,14,114514),"2/15/114514");
 
-        assertEquals(Main.NextDate(12,31,2004),"1/1/2005");
+        assertEquals(Main.nextDate(12,31,2004),"1/1/2005");
 
-        assertEquals(Main.NextDate(12,31,-1),"1/1/1");
+        assertEquals(Main.nextDate(12,31,-1),"1/1/1");
 
-        assertEquals(Main.NextDate(3,31,-16400),"4/1/-16400");
+        assertEquals(Main.nextDate(3,31,-16400),"4/1/-16400");
 
-        assertEquals(Main.NextDate(2,14,-300),"2/15/-300");
+        assertEquals(Main.nextDate(2,14,-300),"2/15/-300");
 
-        assertEquals(Main.NextDate(6,21,-4),"6/22/-4");
+        assertEquals(Main.nextDate(6,21,-4),"6/22/-4");
 
         Date test_mk=mock(Date.class);
         Mockito.when(test_mk.printDate()).thenReturn("mmp").thenReturn("asd");
         assertEquals(test_mk.printDate(),"mmp");
         assertEquals(test_mk.printDate(),"asd");
-
-
-
-
 
 
 

@@ -1,0 +1,143 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: Day</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">&lt;empty package name&gt;</a> ]
+</div>
+
+<h1>Coverage Summary for Class: Day (&lt;empty package name&gt;)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">Day</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (6/ 6)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (20/ 20)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">Day$$EnhancerByMockitoWithCGLIB$$bf25acde</td>
+  </tr>
+  <tr>
+    <td class="name">Day$$EnhancerByMockitoWithCGLIB$$bf25acde$$FastClassByMockitoWithCGLIB$$9abe18a2</td>
+  </tr>
+  <tr>
+    <td class="name">Day$$FastClassByMockitoWithCGLIB$$10b7c</td>
+  </tr>
+<tr>
+  <td class="name"><strong>total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (6/ 6)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (20/ 20)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;public class Day extends CalendarUnit {
+<i>2</i>&nbsp;	private Month m;
+<i>3</i>&nbsp;
+<b class="fc"><i>4</i>&nbsp;	public Day(int pDay, Month m) {</b>
+<b class="fc"><i>5</i>&nbsp;		setDay(pDay, m);</b>
+<i>6</i>&nbsp;	}
+<i>7</i>&nbsp;
+<i>8</i>&nbsp;	public boolean increment() {
+<b class="fc"><i>9</i>&nbsp;		currentPos += 1;</b>
+<b class="fc"><i>10</i>&nbsp;		if (currentPos &lt;= m.getMonthSize())</b>
+<b class="fc"><i>11</i>&nbsp;			return true;</b>
+<i>12</i>&nbsp;		else
+<b class="fc"><i>13</i>&nbsp;			return false;</b>
+<i>14</i>&nbsp;	}
+<i>15</i>&nbsp;
+<i>16</i>&nbsp;	public void setDay(int pDay, Month m) {
+<b class="fc"><i>17</i>&nbsp;		setCurrentPos(pDay);</b>
+<b class="fc"><i>18</i>&nbsp;		this.m = m;</b>
+<b class="fc"><i>19</i>&nbsp;		if (!this.isValid()) {</b>
+<b class="fc"><i>20</i>&nbsp;			throw new IllegalArgumentException(&quot;Not a valid day&quot;);</b>
+<i>21</i>&nbsp;		}
+<i>22</i>&nbsp;	}
+<i>23</i>&nbsp;
+<i>24</i>&nbsp;	public int getDay() {
+<b class="fc"><i>25</i>&nbsp;		return currentPos;</b>
+<i>26</i>&nbsp;	}
+<i>27</i>&nbsp;
+<i>28</i>&nbsp;	public boolean isValid() {
+<b class="fc"><i>29</i>&nbsp;		if (m != null &amp;&amp; m.isValid())</b>
+<b class="fc"><i>30</i>&nbsp;			if (this.currentPos &gt;= 1 &amp;&amp; this.currentPos &lt;= m.getMonthSize())</b>
+<b class="fc"><i>31</i>&nbsp;				return true;</b>
+<b class="fc"><i>32</i>&nbsp;		return false;</b>
+<i>33</i>&nbsp;
+<i>34</i>&nbsp;	}
+<i>35</i>&nbsp;
+<i>36</i>&nbsp;	public boolean equals(Object o) {
+<b class="fc"><i>37</i>&nbsp;		if (o instanceof Day) {</b>
+<b class="fc"><i>38</i>&nbsp;			if (this.currentPos == ((Day) o).currentPos</b>
+<b class="fc"><i>39</i>&nbsp;					&amp;&amp; this.m.equals(((Day) o).m))</b>
+<b class="fc"><i>40</i>&nbsp;				return true;</b>
+<i>41</i>&nbsp;		}
+<b class="fc"><i>42</i>&nbsp;		return false;</b>
+<i>43</i>&nbsp;	}
+<i>44</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2019-05-10 22:29</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,140 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: Year</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">&lt;empty package name&gt;</a> ]
+</div>
+
+<h1>Coverage Summary for Class: Year (&lt;empty package name&gt;)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">Year</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (7/ 7)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (22/ 22)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">Year$$EnhancerByMockitoWithCGLIB$$132d6f37</td>
+  </tr>
+<tr>
+  <td class="name"><strong>total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (7/ 7)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (22/ 22)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;public class Year extends CalendarUnit {
+<b class="fc"><i>2</i>&nbsp;	public Year(int pYear) {</b>
+<b class="fc"><i>3</i>&nbsp;		setYear(pYear);</b>
+<i>4</i>&nbsp;	}
+<i>5</i>&nbsp;
+<i>6</i>&nbsp;	public void setYear(int pYear) {
+<b class="fc"><i>7</i>&nbsp;		setCurrentPos(pYear);</b>
+<b class="fc"><i>8</i>&nbsp;		if (!this.isValid()) {</b>
+<b class="fc"><i>9</i>&nbsp;			throw new IllegalArgumentException(&quot;Not a valid year&quot;);</b>
+<i>10</i>&nbsp;		}
+<i>11</i>&nbsp;	}
+<i>12</i>&nbsp;
+<i>13</i>&nbsp;	public int getYear() {
+<b class="fc"><i>14</i>&nbsp;		return currentPos;</b>
+<i>15</i>&nbsp;	}
+<i>16</i>&nbsp;
+<i>17</i>&nbsp;	public boolean increment() {
+<b class="fc"><i>18</i>&nbsp;		currentPos = currentPos + 1;</b>
+<b class="fc"><i>19</i>&nbsp;		if (currentPos == 0)</b>
+<b class="fc"><i>20</i>&nbsp;			currentPos = 1;</b>
+<b class="fc"><i>21</i>&nbsp;		return true;</b>
+<i>22</i>&nbsp;	}
+<i>23</i>&nbsp;
+<i>24</i>&nbsp;	public boolean isLeap() {
+<b class="fc"><i>25</i>&nbsp;		if (currentPos &gt;= 0</b>
+<i>26</i>&nbsp;				&amp;&amp; (((currentPos % 4 == 0) &amp;&amp; (currentPos % 100 != 0)) || (currentPos % 400 == 0)))
+<b class="fc"><i>27</i>&nbsp;			return true;</b>
+<b class="fc"><i>28</i>&nbsp;		else if (currentPos &lt; 0</b>
+<i>29</i>&nbsp;				&amp;&amp; ((((currentPos * -1) % 4 == 1) &amp;&amp; ((currentPos * -1) % 100 != 1)) || ((currentPos * -1) % 400 == 1)))
+<b class="fc"><i>30</i>&nbsp;			return true;</b>
+<b class="fc"><i>31</i>&nbsp;		return false;</b>
+<i>32</i>&nbsp;	}
+<i>33</i>&nbsp;
+<i>34</i>&nbsp;	protected boolean isValid() {
+<b class="fc"><i>35</i>&nbsp;		if (this.currentPos != 0)</b>
+<b class="fc"><i>36</i>&nbsp;			return true;</b>
+<b class="fc"><i>37</i>&nbsp;		return false;</b>
+<i>38</i>&nbsp;	}
+<i>39</i>&nbsp;
+<i>40</i>&nbsp;	public boolean equals(Object o) {
+<b class="fc"><i>41</i>&nbsp;		if (o instanceof Year) {</b>
+<b class="fc"><i>42</i>&nbsp;			if (this.currentPos == ((Year) o).currentPos)</b>
+<b class="fc"><i>43</i>&nbsp;				return true;</b>
+<i>44</i>&nbsp;		}
+<b class="fc"><i>45</i>&nbsp;		return false;</b>
+<i>46</i>&nbsp;	}
+<i>47</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2019-05-10 22:29</div>
+</div>
+</body>
+</html>
