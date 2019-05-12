@@ -6,6 +6,7 @@ import static org.junit.Assert.*;
 
 public class MainTest {
 
+    private Main main=new Main();
     @Test
     public void nextdate() {
         try {
