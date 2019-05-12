@@ -78,18 +78,11 @@ public class MainTest {
 
         assertEquals(Main.nextDate(12,31,-1),"1/1/1");
 
-        assertEquals(Main.nextDate(3,31,-16400),"4/1/-16400");
+        assertEquals(Main.nextDate(3,31,-16401),"4/1/-16401");
 
-        assertEquals(Main.nextDate(2,14,-300),"2/15/-300");
+        assertEquals(Main.nextDate(2,14,-301),"2/15/-301");
 
-        assertEquals(Main.nextDate(6,21,-4),"6/22/-4");
-
-        Date test_mk=mock(Date.class);
-        Mockito.when(test_mk.printDate()).thenReturn("mmp").thenReturn("asd");
-        assertEquals(test_mk.printDate(),"mmp");
-        assertEquals(test_mk.printDate(),"asd");
-
-
+        assertEquals(Main.nextDate(2,28,-5),"2/29/-5");
 
     }
 }

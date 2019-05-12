@@ -88,6 +88,7 @@ public class DayTest {
         Month month = new Month(1, new Year(1));
         day = new Day(1, month);
         assertEquals(day, new Day(1, month));
+        assertNotEquals(day,new Day(2,new Month(1,new Year(1))));
         assertNotEquals(day,new Day(1,new Month(2,new Year(1))));
         assertNotEquals(day, new Object());
     }
